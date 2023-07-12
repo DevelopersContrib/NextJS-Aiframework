@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 export default function Step4() {
     return (
@@ -9,7 +11,7 @@ export default function Step4() {
                 <div className="row">
                     <div className="col-md-2">
                         <div className="text-start">
-                            <a href="#1st-container" className="btn btn-back" title="Back"><i className="bi bi-arrow-left"></i></a>
+                            <Link href="#1st-container" className="btn btn-back" title="Back"><FontAwesomeIcon icon={faArrowLeftLong} className='tw-text-3xl'/></Link>
                         </div>								
                     </div>
                     <div className="col-md-10"></div>
@@ -18,8 +20,8 @@ export default function Step4() {
         </div>
         <div className="row justify-content-center">
             <div className="col-md-7 coldiv">
-                <div className="text-3xl">You’re almost there!</div>
-                <div className="text-3xl">Just one more step to set up your account.</div>
+                <div className="tw-text-3xl">You’re almost there!</div>
+                <div className="tw-text-3xl">Just one more step to set up your account.</div>
             </div>
             <div className="col-md-7 colformbg">
                 <div className="row">
@@ -65,7 +67,7 @@ export default function Step4() {
                                             width={200}
                                             height={200}
                                             sizes="100vw"
-                                            className='inline'
+                                            className='tw-inline'
                                             alt=""
                                         />		
                             </Link>

@@ -8,8 +8,8 @@ export default function Step3() {
         <>
         <div className="container setup-content" id="2nd-container">
             <div className="row justify-content-center">
-                <div className="col-md-8 coldiv mt-5">
-                    <div className="text-3xl my-2">Javapoint.com Fact: </div>
+                <div className="col-md-8 coldiv tw-mt-5">
+                    <div className="tw-text-3xl tw-my-2">Javapoint.com Fact: </div>
                     <Prompts />
                    
                 </div>
@@ -17,7 +17,7 @@ export default function Step3() {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="text-start">
-                                <Link href="#1st-container" id="deactivate-2nd-container" className="btn btn-back" title="Back"><FontAwesomeIcon icon={faArrowLeftLong} className='text-3xl'/></Link>
+                                <Link href="#1st-container" id="deactivate-2nd-container" className="btn btn-back" title="Back"><FontAwesomeIcon icon={faArrowLeftLong} className='tw-text-3xl'/></Link>
                             </div>								
                         </div>
                         <div className="col-md-6">								

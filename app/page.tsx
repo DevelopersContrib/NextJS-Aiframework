@@ -11,7 +11,7 @@ export default function Home() {
             <div className="col-md-8 text-center col-top">
               <div className="oh-innner">
                 <Link  href="/" className="oh-logo">
-                <p className="text-3xl fw-bold">Javapoint.com</p>
+                <p className="tw-text-3xl fw-bold">Javapoint.com</p>
                 </Link>
                 <div className="oh-right">
                   <div className="contrib-users-avatar">

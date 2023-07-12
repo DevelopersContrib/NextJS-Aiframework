@@ -6,7 +6,7 @@ export default function Step2() {
         <div className="container setup-content" >
             <div className="row justify-content-center">
                 <div className="col-md-8 coldiv">
-                    <div className="fw-bold text-3xl">
+                    <div className="fw-bold tw-text-3xl">
                     👋 Hi! Please type in your name to continue.
                     <label className="input-sizer">
                         <span></span>
@@ -19,7 +19,7 @@ export default function Step2() {
                         <div className="col-md-12" id="name-form-btn-wrapper">
                             <div className="row">
                                 <div className="col-md-12 mb-5 mt-3">
-                                    <div className="fw-bold1 text-center text-3xl">
+                                    <div className="fw-bold1 text-center tw-text-3xl">
                                     Thank you&nbsp;<span className="user-name text-primary text-capitalize"></span>!&nbsp;
                                     </div>
                                 </div>						

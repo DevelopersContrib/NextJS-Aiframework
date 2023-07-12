@@ -9,8 +9,8 @@ export default function Step1() {
         
             <div className="row justify-content-center">
                 <div className="col-md-8 coldiv">
-                    <p className="text-2xl my-2">Welcome to Javapoint.com</p>
-                    <p className="text-3xl fw-bold"> 👋 Hi!
+                    <p className="tw-text-2xl my-2">Welcome to Javapoint.com</p>
+                    <p className="tw-text-3xl fw-bold"> 👋 Hi!
                     I'm a smart URL asset here trying to increase value through education, commerce and community. How can we help?</p>
                 </div>
                 <div className="col-md-8">
@@ -19,7 +19,7 @@ export default function Step1() {
                             <div className="select-1st">
                                 <input className="styled-checkbox" name="form1-checkbox" id="styled-checkbox-1" type="checkbox" value="cd1" data-form="offer::inquire" />
                                 <label htmlFor="styled-checkbox-1">
-                                <FontAwesomeIcon icon={faGlobe}  className='text-3xl'/>
+                                <FontAwesomeIcon icon={faGlobe}  className='tw-text-3xl'/>
                                 <div>Interested in connecting with Javapoint.com</div>
                                 </label>
                             </div>
@@ -28,7 +28,7 @@ export default function Step1() {
                             <div className="select-2nd">
                                 <input className="styled-checkbox" name="form1-checkbox" id="styled-checkbox-2" type="checkbox" value="cd2" data-form="staffing" />
                                 <label htmlFor="styled-checkbox-2">
-                                <FontAwesomeIcon icon={faBoxesPacking} className='text-3xl'/>
+                                <FontAwesomeIcon icon={faBoxesPacking} className='tw-text-3xl'/>
                                 <div>Would like to find a job with Javapoint.com</div>
                                 </label>
                             </div>
@@ -37,7 +37,7 @@ export default function Step1() {
                             <div className="select-3rd">
                                 <input className="styled-checkbox" name="form1-checkbox" id="styled-checkbox-3" type="checkbox" value="cd3" data-form="staffing" />
                                 <label htmlFor="styled-checkbox-3">
-                                <FontAwesomeIcon icon={faBoxesStacked} className='text-3xl'/>
+                                <FontAwesomeIcon icon={faBoxesStacked} className='tw-text-3xl'/>
                                 <div>Help build Javapoint.com</div>
                                 </label>
                             </div>
@@ -46,7 +46,7 @@ export default function Step1() {
                             <div className="select-4th">
                                 <input className="styled-checkbox" name="form1-checkbox" id="styled-checkbox-4" type="checkbox" value="cd4" data-form="earnctb" />
                                 <label htmlFor="styled-checkbox-4">
-                                <FontAwesomeIcon icon={faCoins} className='text-3xl'/>
+                                <FontAwesomeIcon icon={faCoins} className='tw-text-3xl'/>
                                 <div>Earn CTB or Javapoint.com token</div>
                                 </label>
                             </div>
@@ -55,7 +55,7 @@ export default function Step1() {
                             <div className="select-5th">
                                 <input className="styled-checkbox" name="form1-checkbox" id="styled-checkbox-5" type="checkbox" value="cd5" data-form="partner" />
                                 <label htmlFor="styled-checkbox-5">
-                                <FontAwesomeIcon icon={faHandHolding} className='text-3xl'/>
+                                <FontAwesomeIcon icon={faHandHolding} className='tw-text-3xl'/>
                                 <div>Interested in partner opps with Javapoint.com</div>
                                 </label>
                             </div>
@@ -64,7 +64,7 @@ export default function Step1() {
                             <div className="select-6th">
                                 <input className="styled-checkbox" name="form1-checkbox" id="styled-checkbox-6" type="checkbox" value="cd6" data-form="earnctb" />
                                 <label htmlFor="styled-checkbox-6">
-                                <FontAwesomeIcon icon={faShare} className='text-3xl'/>
+                                <FontAwesomeIcon icon={faShare} className='tw-text-3xl'/>
                                 <div>Connect with others</div>
                                 </label>
                             </div>
@@ -87,7 +87,7 @@ export default function Step1() {
                                             width={200}
                                             height={200}
                                             sizes="100vw"
-                                            className='inline'
+                                            className='tw-inline'
                                             alt=""
                                         />		
                                         </Link>
