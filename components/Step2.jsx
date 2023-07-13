@@ -1,6 +1,7 @@
-import Link from "next/link";
 
-export default function Step2() {
+import NameStep from "./NameStep"
+
+export default function Step2({handleSubmit,prevStep,data,handleChange}) {
     return (
         <>
         <div className="container setup-content" >
@@ -10,33 +11,11 @@ export default function Step2() {
                     👋 Hi! Please type in your name to continue.
                     <label className="input-sizer">
                         <span></span>
-                        <input id="userName" type="text" onInput="this.parentNode.dataset.value = this.value" size="4" placeholder="Name"/>
+                        <input name="name" onChange={handleChange} type="text" size="4" placeholder="Name"/>
                     </label>	
                     </div>
                 </div>
-                <div className="col-md-8 coldiv">
-                    <div className="row">				
-                        <div className="col-md-12" id="name-form-btn-wrapper">
-                            <div className="row">
-                                <div className="col-md-12 mb-5 mt-3">
-                                    <div className="fw-bold1 text-center tw-text-3xl">
-                                    Thank you&nbsp;<span className="user-name text-primary text-capitalize"></span>!&nbsp;
-                                    </div>
-                                </div>						
-                                <div className="col-md-6">
-                                    <div className="text-start">                       
-                                        <Link href="#" className="btn btn-dark btn-lg rounded-pill" id="activate-1st-container">Back</Link>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="text-end">                        
-                                        <Link href="#" class="btn btn-dark btn-lg rounded-pill" id="activate-2nd-container">Let's go</Link>
-                                    </div>
-                                </div>
-                            </div>                    
-                        </div>
-                    </div>
-                </div>
+                {data.name !='' ?  <NameStep data={data} handleSubmit={handleSubmit} prevStep={prevStep} />: null}
             </div>
         </div>
         </>

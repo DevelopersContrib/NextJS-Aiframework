@@ -11,6 +11,13 @@ export function getDomain() {
   return domainName;
 }
 
+export function ucfirst(str) {
+  if (typeof str !== 'string') {
+    return '';
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 export async function getData() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1+`&domain=${domain}`
@@ -45,3 +52,60 @@ export async function getScript(url) {
     return { error: "error getScript" };
   }
 }
+
+export async function getTeamApplication(){
+  const domain = getDomain();
+  const url = process.env.CONTRIB_API1_TEAM_APPLICATION+`&domain=${domain}`
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+
+}
+
+export async function getTotalTasks(){
+  const domain = getDomain();
+  const url = process.env.CONTRIB_AP1_TOTAL_TASKS+`&domain=${domain}`
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+  
+}
+
+export async function getTotalLeads(){
+  const domain = getDomain();
+  const url = process.env.CONTRIB_AP1_TOTAL_LEADS+`&domain=${domain}`
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+  
+}
+
+export async function getTotalMembers(){
+  const domain = getDomain();
+  const url = process.env.CONTRIB_AP1_CONTRIB_MEMBERS+`&domain=${domain}`
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+  
+}
+

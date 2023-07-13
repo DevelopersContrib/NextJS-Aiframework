@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
-export default function Step4() {
+export default function Step4({domain, handleSubmit, prevStep}) {
     return (
         <>
         <div className="row justify-content-center">
@@ -11,7 +11,7 @@ export default function Step4() {
                 <div className="row">
                     <div className="col-md-2">
                         <div className="text-start">
-                            <Link href="#1st-container" className="btn btn-back" title="Back"><FontAwesomeIcon icon={faArrowLeftLong} className='tw-text-3xl'/></Link>
+                            <Link href="" className="btn btn-back" title="Back" onClick={prevStep}><FontAwesomeIcon icon={faArrowLeftLong} className='tw-text-3xl'/></Link>
                         </div>								
                     </div>
                     <div className="col-md-10"></div>
@@ -51,7 +51,7 @@ export default function Step4() {
                     </div>		
                     <div className="col-md-12 mt-3">
                         <div className="d-grid gap-2">
-                            <Link href="javascript:;" className="btn btn-dark btn-lg btn-block rounded-pill" id="activate-5th-container">Join Javapoint</Link>
+                            <Link href="" className="btn btn-dark btn-lg btn-block rounded-pill" id="activate-5th-container" onClick={handleSubmit}>Join {domain}</Link>
                         </div>
                     </div>											
                 </div>
