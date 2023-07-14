@@ -2,8 +2,11 @@ import Link from "next/link";
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
+import ErrorBlock from './ErrorBlock';
 
-export default function Step4({domain, handleSubmit, prevStep}) {
+export default function Step4({domain, handleSubmit, prevStep, handleCheckboxChangeTerms, err, handleChange, emailExist}) {
+    const terms_link = 'https://domaindirectory.com/policypage/terms?domain='+domain;
+    const privacy_link = 'https://domaindirectory.com/policypage/privacypolicy?domain='+domain;
     return (
         <>
         <div className="row justify-content-center">
@@ -28,24 +31,27 @@ export default function Step4({domain, handleSubmit, prevStep}) {
                     <div className="col-md-12">
                         <div className="mb-3">
                             <label htmlFor="form4-email" className="form-label">Email address</label>
-                            <input type="email" className="form-control form-control-lg" id="form4-email" placeholder="Enter your email address" />
+                            <input type="email" name="email" onChange={handleChange} className="form-control form-control-lg" id="form4-email" placeholder="Enter your email address" />
+                            {err.validate? (<ErrorBlock msg={err.emailError} />): null}
+                            {emailExist? (<ErrorBlock msg={emailExist} />): null}
                         </div>
                         <div className="mb-3">
                             <label htmlFor="form4-password" className="form-label">Password*</label>
-                            <input type="password" className="form-control form-control-lg" id="form4-password" placeholder="Create a password" />
+                            <input type="password" name="password" onChange={handleChange} className="form-control form-control-lg" id="form4-password" placeholder="Create a password" />
+                            {err.validate? (<ErrorBlock msg={err.passwordError} />): null}
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-12 mt-4">
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="checkbox-term-policy" />
+                            <input className="form-check-input" type="checkbox" value="" id="checkbox-term-policy" onClick={() => handleCheckboxChangeTerms('checked')}/>
                             <label className="form-check-label" for="flexCheckDefault">
-                                I agree to the <Link href="https://domaindirectory.com/policypage/terms?domain=<?=$info['domain']?>" target="_blank">Terms of Service</Link> 
-                                and <Link href="https://domaindirectory.com/policypage/privacypolicy?domain=<?=$info['domain']?>" target="_blank">Privacy Policy</Link>
+                                I agree to the <Link href={terms_link} target="_blank" className="tw-text-blue-500">Terms of Service</Link>
+                                &nbsp; and <Link href={privacy_link} target="_blank" className="tw-text-blue-500">Privacy Policy</Link>
                             </label>
-                            <div id="terms-policy-error" class="d-none">
-                                <span className="text-danger">Do you agree to the terms and policy?</span>
+                            <div id="terms-policy-error">
+                            {err.validate? (<ErrorBlock msg={err.termsCheckedError} />): null}
                             </div>
                         </div>
                     </div>		
