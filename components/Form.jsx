@@ -120,6 +120,7 @@ export default function AiForm ({domain, domain_leads, team_application, total_t
             
             <Step1 domain={domain} 
             data={data}
+            handleChange={handleChange}
             handleSubmit={handleSubmit}
             handleCheckboxChange={handleCheckboxChange}
             />

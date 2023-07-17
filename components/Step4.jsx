@@ -46,7 +46,7 @@ export default function Step4({domain, handleSubmit, prevStep, handleCheckboxCha
                     <div className="col-md-12 mt-4">
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" value="" id="checkbox-term-policy" onClick={() => handleCheckboxChangeTerms('checked')}/>
-                            <label className="form-check-label" for="flexCheckDefault">
+                            <label className="form-check-label" htmlFor="flexCheckDefault">
                                 I agree to the <Link href={terms_link} target="_blank" className="tw-text-blue-500">Terms of Service</Link>
                                 &nbsp; and <Link href={privacy_link} target="_blank" className="tw-text-blue-500">Privacy Policy</Link>
                             </label>

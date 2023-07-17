@@ -3,7 +3,7 @@ import { faGlobe, faBoxesPacking, faBoxesStacked, faCoins, faHandHolding, faShar
 import Link from "next/link";
 import Image from 'next/image';
 
-export default function Step1({data, domain, handleSubmit, handleCheckboxChange}) {
+export default function Step1({data, domain, handleSubmit, handleCheckboxChange, handleChange}) {
     return (
         <>
         
@@ -21,6 +21,7 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange}
                                 checked={data.selectedCheckbox === 'cd1'}
                                 name="form1-checkbox" 
                                 type="checkbox" value="cd1" 
+                                onChange={handleChange}
                                 />
                                 <label htmlFor="styled-checkbox-1" onClick={() => handleCheckboxChange('cd1','offer::inquire')}>
                                 <FontAwesomeIcon icon={faGlobe}  className='tw-text-3xl'/>
@@ -32,8 +33,9 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange}
                             <div className="select-2nd">
                                 <input className="styled-checkbox" 
                                 checked={data.selectedCheckbox === 'cd2'}
-                                name="form1-checkbox" 
-                                type="checkbox" value="cd2" 
+                                name="form2-checkbox" 
+                                type="checkbox" value="cd2"
+                                onChange={handleChange} 
                                 />
                                 <label htmlFor="styled-checkbox-2" onClick={() => handleCheckboxChange('cd2','staffing')}>
                                 <FontAwesomeIcon icon={faBoxesPacking} className='tw-text-3xl'/>
@@ -43,9 +45,10 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange}
                         </div>
                         <div className="col-md-4">
                             <div className="select-3rd">
-                                <input className="styled-checkbox" name="form1-checkbox" 
+                                <input className="styled-checkbox" name="form3-checkbox" 
                                  checked={data.selectedCheckbox === 'cd3'}
-                                 type="checkbox" value="cd3" 
+                                 type="checkbox" value="cd3"
+                                 onChange={handleChange}
                                 />
                                 <label htmlFor="styled-checkbox-3" onClick={() => handleCheckboxChange('cd3','staffing')}>
                                 <FontAwesomeIcon icon={faBoxesStacked} className='tw-text-3xl'/>
@@ -55,7 +58,8 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange}
                         </div>
                         <div className="col-md-4">
                             <div className="select-4th">
-                                <input className="styled-checkbox" name="form1-checkbox" 
+                                <input className="styled-checkbox" name="form4-checkbox"
+                                onChange={handleChange} 
                                 checked={data.selectedCheckbox === 'cd4'}
                                 type="checkbox" value="cd4" />
                                 <label htmlFor="styled-checkbox-4" onClick={() => handleCheckboxChange('cd4','earnctb')}>
@@ -66,8 +70,9 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange}
                         </div>
                         <div className="col-md-4">
                             <div className="select-5th">
-                                <input className="styled-checkbox" name="form1-checkbox" 
+                                <input className="styled-checkbox" name="form5-checkbox" 
                                 checked={data.selectedCheckbox === 'cd5'}
+                                onChange={handleChange}
                                 type="checkbox" value="cd5" data-form="partner" />
                                 <label htmlFor="styled-checkbox-5" onClick={() => handleCheckboxChange('cd5','partner')}>
                                 <FontAwesomeIcon icon={faHandHolding} className='tw-text-3xl'/>
@@ -77,8 +82,9 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange}
                         </div>
                         <div className="col-md-4">
                             <div className="select-6th">
-                                <input className="styled-checkbox" name="form1-checkbox" 
+                                <input className="styled-checkbox" name="form6-checkbox" 
                                 checked={data.selectedCheckbox === 'cd6'}
+                                onChange={handleChange} 
                                 type="checkbox" value="cd6" data-form="earnctb" />
                                 <label htmlFor="styled-checkbox-6" onClick={() => handleCheckboxChange('cd6','earnctb')}>
                                 <FontAwesomeIcon icon={faShare} className='tw-text-3xl'/>
