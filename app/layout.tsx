@@ -1,6 +1,7 @@
 import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getData } from '@/lib/data'
+import MyProvider from "@/components/Provider"
 
 export async function generateMetadata() {
   const c = await getData();
@@ -21,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="mainOnboardingContainer">
-          {children}
-        </div>
+        <MyProvider>
+          <div className="mainOnboardingContainer">
+            {children}
+          </div>
+        </MyProvider>
       </body>
     </html>
   )

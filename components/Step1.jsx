@@ -2,8 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe, faBoxesPacking, faBoxesStacked, faCoins, faHandHolding, faShare } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link";
 import Image from 'next/image';
+// import User from '@/components/User'
 
-export default function Step1({data, domain, handleSubmit, handleCheckboxChange, handleChange}) {
+export default function Step1({data, domain, handleSubmit, handleCheckboxChange, handleChange, loginUrl}) {
+   
     return (
         <>
         
@@ -104,7 +106,7 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange,
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="text-center text-uppercase mt-3">
-                                        login with <Link href="#" id="btn-login-contrib" >
+                                        login with <a href={loginUrl} id="btn-login-contrib" >
                                         <Image
                                             src="https://cdn.vnoc.com/logos/logo-new-contrib-06.png"
                                             width={200}
@@ -113,8 +115,9 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange,
                                             className='tw-inline'
                                             alt=""
                                         />		
-                                        </Link>
+                                        </a>
                                     </div>
+									{/* <User/> */}
                                 </div>
                             </div>
                         </div>

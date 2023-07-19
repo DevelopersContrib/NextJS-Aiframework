@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Containerform from '../components/Containerform';
-import { getData, getDomain, getTotalMembers, ucfirst, getTotalLeads, getTeamApplication, getTotalTasks } from '../lib/data'
+import { getData, getDomain, getLoginUrl, getTotalMembers, ucfirst, getTotalLeads, getTeamApplication, getTotalTasks } from '../lib/data'
 import Logo from '../components/Logo'
 
 export default async function Home() {
@@ -11,8 +11,7 @@ export default async function Home() {
   const totalTasks = await getTotalTasks();
   const domain = getDomain();
   const uc_domain = ucfirst(domain);
-
-  
+  const loginUrl = getLoginUrl()
 
   return (
     <>
@@ -70,6 +69,7 @@ export default async function Home() {
         team_application={teamApplication.data.team_application} 
         total_tasks={totalTasks.data.task_count}
         members={members.data.count}
+        loginUrl={loginUrl}
         />
           
       </div>

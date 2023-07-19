@@ -11,6 +11,18 @@ export function getDomain() {
   return domainName;
 }
 
+export function getLoginUrl() {
+  const headersList = headers();
+  const referrer = headersList.get("host");
+  const domain = referrer.includes("localhost")
+    ? 'http://'+referrer
+    : 'https://'+referrer.replace("www.", "");
+
+  const url = process.env.CONTRIB_LOGIN_URL+
+    `?client=${process.env.API_KEY}&redirect_url=${domain}/contrib/login&cancel_url=${domain}`
+  return url
+}
+
 export function ucfirst(str) {
   if (typeof str !== 'string') {
     return '';

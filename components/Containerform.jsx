@@ -1,6 +1,7 @@
 import Form from './Form';
 
-const Containerform = ({domain,domain_leads,team_application, total_tasks, members, domain_small}) => {
+const Containerform = ({domain,domain_leads,team_application, total_tasks, members, domain_small, loginUrl}) => {
+    
     return (
         <div className="container setup-content">
         <Form domain={domain} 
@@ -9,6 +10,7 @@ const Containerform = ({domain,domain_leads,team_application, total_tasks, membe
         team_application={team_application}
         total_tasks={total_tasks}
         members={members}
+        loginUrl={loginUrl}
         />
         </div>
         
