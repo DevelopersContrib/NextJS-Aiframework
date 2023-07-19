@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import Link from 'next/link';
 
 export default function Form() {
+  const domain = 'dns.org'
   const { user, setUser } = useContext(UserContext);
 	const searchParams = useSearchParams() 
   const code = searchParams.get('code')
@@ -46,7 +47,7 @@ export default function Form() {
           ):
           user?(
             <div className="py-8 px-16">
-              <h1 className="text-xl text-gray-600 my-4">Connect with Dns.org using the options below {user.first_name}</h1>
+              <h1 className="text-xl text-gray-600 my-4">Connect with {domain} using the options below {user.first_name}</h1>
             </div>
           ):<h1>Loading...</h1>
           
