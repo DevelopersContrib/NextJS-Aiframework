@@ -8,17 +8,17 @@ import Step4 from './Step4';
 import Step5 from './Step5';
 
 
-export default function AiForm ({domain, domain_leads, team_application, total_tasks, members, domain_small, loginUrl}) {
+export default function AiForm ({domain, domain_leads, team_application, total_tasks, members, domain_small, loginUrl,dataFrom}) {
     const initialValues = {
         domain:domain_small,
-        step: 1,
+        step: dataFrom.step,
         email:'',
         password:'',
         selectedCheckbox:'',
         name:'',
         termsChecked:'',
         form:'',
-				url:''
+		url:dataFrom.url
     }
 
     const initialErrors = {
@@ -160,11 +160,7 @@ export default function AiForm ({domain, domain_leads, team_application, total_t
             )
         }else if(step===5){
             return (
-                <Step5 domain={domain}
-                handleSubmit={handleSubmit}
-                prevStep={prevStep}
-								data={data}
-                />
+                <Step5 data={data} />
             )
         }
     }
