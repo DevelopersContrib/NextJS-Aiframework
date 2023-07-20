@@ -19,7 +19,7 @@ export default function Container({domain}) {
     const [message, setMessage] = useState(false);
 
     useEffect(() => {
-		
+      console.log('useEffect')
         if(code){
         async function fetchData() {
             const response = await fetch("/api/account", {
@@ -45,7 +45,7 @@ export default function Container({domain}) {
         }
         fetchData();
         }
-    }, []);
+    }, [code, domain, ,user, data, setUser]);
 
 
 
