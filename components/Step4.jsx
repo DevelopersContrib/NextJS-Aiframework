@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import ErrorBlock from './ErrorBlock';
 
-export default function Step4({domain, handleSubmit, prevStep, handleCheckboxChangeTerms, err, handleChange, emailExist}) {
+export default function Step4({domain, handleSubmit, prevStep, handleCheckboxChangeTerms, err, handleChange, emailExist, loginUrl}) {
     const terms_link = 'https://domaindirectory.com/policypage/terms?domain='+domain;
     const privacy_link = 'https://domaindirectory.com/policypage/privacypolicy?domain='+domain;
     return (
@@ -67,7 +67,7 @@ export default function Step4({domain, handleSubmit, prevStep, handleCheckboxCha
                     <div className="col-md-12">
                         <div className="text-center text-uppercase mt-3">
                             Or login with
-                            <Link href="#" id="btn-login-contrib" >
+                            <Link href={loginUrl} id="btn-login-contrib" >
                                         <Image
                                             src="https://cdn.vnoc.com/logos/logo-new-contrib-06.png"
                                             width={200}

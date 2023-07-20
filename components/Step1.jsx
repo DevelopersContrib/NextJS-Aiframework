@@ -106,7 +106,7 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange,
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="text-center text-uppercase mt-3">
-                                        login with <a href={loginUrl} id="btn-login-contrib" >
+                                        login with <Link href={loginUrl} id="btn-login-contrib" >
                                         <Image
                                             src="https://cdn.vnoc.com/logos/logo-new-contrib-06.png"
                                             width={200}
@@ -115,7 +115,7 @@ export default function Step1({data, domain, handleSubmit, handleCheckboxChange,
                                             className='tw-inline'
                                             alt=""
                                         />		
-                                        </a>
+                                        </Link>
                                     </div>
 									{/* <User/> */}
                                 </div>

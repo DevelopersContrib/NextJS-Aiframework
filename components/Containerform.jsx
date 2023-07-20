@@ -1,14 +1,7 @@
-"use client";
-
-
 import Form from './Form';
 
 const Containerform = ({domain,domain_leads,team_application, total_tasks, members, domain_small, loginUrl}) => {
-    const dataFormValues = {
-        step: 1,
-        url: ''
-    }
-
+   
 
     return (
         <div className="container setup-content">
@@ -19,7 +12,6 @@ const Containerform = ({domain,domain_leads,team_application, total_tasks, membe
         total_tasks={total_tasks}
         members={members}
         loginUrl={loginUrl}
-        dataFrom={dataFormValues}
         />
         </div>
         
