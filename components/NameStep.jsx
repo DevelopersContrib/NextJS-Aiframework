@@ -18,7 +18,7 @@ export default function NameStep({handleSubmit,prevStep,data}) {
                         </div>
                         <div className="col-md-6">
                             <div className="text-end">                        
-                                <Link href="" className="btn btn-dark btn-lg rounded-pill" id="activate-2nd-container" onClick={handleSubmit}>Let's go</Link>
+                                <Link href="" className="btn btn-dark btn-lg rounded-pill" id="activate-2nd-container" onClick={handleSubmit}>Let&apos;s go</Link>
                             </div>
                         </div>
                     </div>                    

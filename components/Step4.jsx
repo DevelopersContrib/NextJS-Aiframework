@@ -73,7 +73,7 @@ export default function Step4({domain, handleSubmit, prevStep, handleCheckboxCha
                                             width={200}
                                             height={200}
                                             sizes="100vw"
-                                            className='tw-inline'
+                                            className="tw-inline"
                                             alt=""
                                         />		
                             </Link>
