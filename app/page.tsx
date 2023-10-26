@@ -25,7 +25,7 @@ export default async function Home() {
                 <div className="oh-right">
                   <div className="contrib-users-avatar">
                   <Image
-                    src="https://i0.wp.com/blog.contrib.com/wp-content/uploads/2022/06/jackripper.jpg"
+                    src="https://s3.amazonaws.com/assets.zipsite.net/images/jayson/icons/currency-ctb-4.png"
                     width={0}
                     height={0}
                     className="img-fluid tw-w-full"
