@@ -33,7 +33,7 @@ export function ucfirst(str) {
 export async function getData() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1+`&domain=${domain}`
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
@@ -45,7 +45,7 @@ export async function getData() {
 export async function getTopsites() {
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_TOPSITES+`&domain=${domain}`
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -68,7 +68,7 @@ export async function getScript(url) {
 export async function getTeamApplication(){
   const domain = getDomain();
   const url = process.env.CONTRIB_API1_TEAM_APPLICATION+`&domain=${domain}`
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -82,7 +82,7 @@ export async function getTeamApplication(){
 export async function getTotalTasks(){
   const domain = getDomain();
   const url = process.env.CONTRIB_AP1_TOTAL_TASKS+`&domain=${domain}`
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -96,7 +96,7 @@ export async function getTotalTasks(){
 export async function getTotalLeads(){
   const domain = getDomain();
   const url = process.env.CONTRIB_AP1_TOTAL_LEADS+`&domain=${domain}`
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -110,7 +110,7 @@ export async function getTotalLeads(){
 export async function getTotalMembers(){
   const domain = getDomain();
   const url = process.env.CONTRIB_AP1_CONTRIB_MEMBERS+`&domain=${domain}`
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
