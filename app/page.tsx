@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Containerform from '../components/Containerform';
+import HeaderWidget from '../components/HeaderWidget';
+
+
 import { getData, getDomain, getLoginUrl, getTotalMembers, ucfirst, getTotalLeads, getTeamApplication, getTotalTasks } from '../lib/data'
 import Logo from '../components/Logo'
 
@@ -15,6 +18,8 @@ export default async function Home() {
 
   return (
     <>
+     <HeaderWidget domain={domain} piwikId={c.data.piwikId} accountGA={c.data.accountGA} adsenseClientId={c.data.adsenseClientId}  />
+     
       <div className="onboardingHeader">
         <div className="container">
           <div className="row justify-content-center">
