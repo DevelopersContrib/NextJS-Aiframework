@@ -4,7 +4,7 @@
 
 .onboardingHeader {
   position: relative;
-  padding-top: 70px;
+  padding-top: 30px;
 }
 .col-top {
   display: flex;
@@ -109,8 +109,8 @@
 /**********/
 .onboardingSection {
   position: relative;
-  padding-top: 60px;
-  padding-bottom: 160px;
+  padding-top: 50px;
+  padding-bottom: 150px;
 }
 .coldiv {
   margin-bottom: 20px;
