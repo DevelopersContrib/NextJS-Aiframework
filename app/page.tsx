@@ -2,6 +2,7 @@ import Image from "next/image";
 import Containerform from "../components/Containerform";
 import HeaderWidget from "../components/HeaderWidget";
 import NewsTicker from "../components/NewsTicker";
+import CTABanner from "../components/CTABanner";
 
 import {
   getData,
@@ -93,6 +94,7 @@ export default async function Home() {
           loginUrl={loginUrl}
         />
       </div>
+      <CTABanner />
     </>
   );
 }
