@@ -26,7 +26,7 @@ export default function CTABanner() {
 
           <div className="tw-mt-6">
             <Link
-              href="/staking"
+              href="https://agentdao.com/staking"
               target="_blank"
               rel="noopener noreferrer"
               className="tw-inline-block tw-px-8 tw-py-4 tw-bg-white tw-text-yellow-700 tw-font-extrabold tw-text-xl tw-rounded-lg tw-shadow-lg tw-transition-all tw-duration-300 tw-ease-in-out tw-transform hover:tw-bg-yellow-600 hover:tw-text-white hover:tw-scale-105"
