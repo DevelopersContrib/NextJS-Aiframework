@@ -3,6 +3,7 @@ import "./custom.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getData } from "@/lib/data";
 import MyProvider from "@/components/Provider";
+import { First100FoundersModal } from "@/components/First100FoundersModal";
 
 export async function generateMetadata() {
   const c = await getData();
@@ -55,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <First100FoundersModal />
         <MyProvider>
           <div className="mainOnboardingContainer">{children}</div>
         </MyProvider>
