@@ -178,15 +178,15 @@ export const First100FoundersModal: React.FC<First100FoundersModalProps> = ({
           </div>
         </div>
         <div className="cta-row">
-          <button
+          <a
             className="cta-btn"
-            onClick={() => {
-              handleClose();
-              router.push("/first100founders");
-            }}
+            href="https://www.ventureos.com/first100founders"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleClose}
           >
             Reserve My Founder Spot
-          </button>
+          </a>
           <button className="cta-btn later-btn" onClick={handleClose}>
             Maybe Later
           </button>
