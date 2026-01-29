@@ -74,7 +74,15 @@
 .modal-desc {
   font-size: 1.1rem;
   color: #e0e7ff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+.features-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fde68a;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .features-grid {
   display: grid;

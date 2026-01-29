@@ -71,18 +71,18 @@ export const First100FoundersModal: React.FC<First100FoundersModalProps> = ({
             <path d="M3 5h4"></path>
             <path d="M17 19h4"></path>
           </svg>
-          Limited Time Offer
+          VentureOS Beta Now Live
         </div>
         <div className="modal-title">
-          🎉 Be One of the <br />
-          <span>First 100 Founders!</span>
+          VentureOS Beta <br />
+          <span>Now Live</span>
         </div>
         <div className="modal-subtitle">
-          Don&apos;t wait for the public launch!
+          We Are Now in Full Beta Launch
         </div>
         <div className="modal-desc">
-          Secure your spot now and get exclusive access to VentureOS platform
-          with incredible benefits.
+          Join the beta and experience the future of business building with
+          AI-powered tools. Full platform access is now available!
         </div>
         <div className="features-grid">
           <div className="feature-card">
@@ -105,9 +105,7 @@ export const First100FoundersModal: React.FC<First100FoundersModalProps> = ({
                 <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
               </svg>
             </span>
-            <span className="feature-title">
-              Full platform access on January 15, 2026
-            </span>
+            <span className="feature-title">Full Beta Launch - Now Live</span>
           </div>
           <div className="feature-card">
             <span className="feature-icon" style={{ color: "#a78bfa" }}>
@@ -185,14 +183,14 @@ export const First100FoundersModal: React.FC<First100FoundersModalProps> = ({
             rel="noopener noreferrer"
             onClick={handleClose}
           >
-            Reserve My Founder Spot
+            Access Beta Now
           </a>
           <button className="cta-btn later-btn" onClick={handleClose}>
             Maybe Later
           </button>
         </div>
         <div className="modal-footer">
-          🔥 Only 100 slots available • Act fast before they&apos;re gone!
+          Limited beta access • Join now to secure your spot!
         </div>
       </div>
     </div>
