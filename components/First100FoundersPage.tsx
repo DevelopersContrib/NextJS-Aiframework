@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   Check,
   Rocket,
@@ -28,8 +29,25 @@ const generateAvatarUrl = (seed: number) => {
   return `https://api.dicebear.com/7.x/${style}/svg?seed=${seed}&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf`;
 };
 
+// Service for First 100 Founders count (replace with real API when available)
+const First100FoundersService = {
+  async getCount(): Promise<{ success: boolean; data?: { remaining: number } }> {
+    try {
+      // TODO: replace with actual API endpoint, e.g. fetch("/api/first100founders/count")
+      const res = await fetch("/api/first100founders/count").catch(() => null);
+      if (res?.ok) {
+        const json = await res.json();
+        return { success: true, data: { remaining: json.remaining ?? 100 } };
+      }
+    } catch {
+      // ignore
+    }
+    return { success: true, data: { remaining: 100 } };
+  },
+};
+
 export const First100FoundersPage: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [slotsRemaining, setSlotsRemaining] = useState(100);
   const [loading, setLoading] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState({
@@ -325,7 +343,7 @@ export const First100FoundersPage: React.FC = () => {
               </div>
 
               <button
-                onClick={() => navigate("/first100founders/onboarding")}
+                onClick={() => router.push("/first100founders/onboarding")}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg rounded-xl hover:from-blue-400 hover:to-purple-400 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 border-2 border-white/20"
               >
                 Reserve My Founder Spot – $99
@@ -596,7 +614,7 @@ export const First100FoundersPage: React.FC = () => {
 
                     <button
                       onClick={() =>
-                        navigate(`/first100founders/onboarding?plan=${plan.id}`)
+                        router.push(`/first100founders/onboarding?plan=${plan.id}`)
                       }
                       className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 ${
                         plan.popular
@@ -928,7 +946,7 @@ export const First100FoundersPage: React.FC = () => {
               before 2026
             </p>
             <button
-              onClick={() => navigate("/first100founders/onboarding")}
+              onClick={() => router.push("/first100founders/onboarding")}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Reserve My Founder Spot – $99
