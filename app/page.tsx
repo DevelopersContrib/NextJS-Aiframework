@@ -39,7 +39,7 @@ export default async function Home() {
       <div className="onboardingHeader">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-md-8 text-center col-top">
+            <div className="col-md-8 text-center col-top py-4">
               <div className="oh-innner">
                 <Logo domain={domain} logo={c.data.logo} />
 

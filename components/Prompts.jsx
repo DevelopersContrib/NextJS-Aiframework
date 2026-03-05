@@ -2,7 +2,7 @@
 export default function Prompts({domain, domain_leads, team_application, total_tasks, members, data}) {
 
     const showPrompt = () => {
-        const checklist_val = data.selectedCheckbox
+        const checklist_val = data?.selectedCheckbox;
 
         if(checklist_val==='cd1'){
             return (
@@ -20,8 +20,8 @@ export default function Prompts({domain, domain_leads, team_application, total_t
         }else if(checklist_val==='cd3'){
             return (
                 <h1 className="col-desc " id="cd3">
-                <span className="">{domain}</span>   
-                 is part of our VNOC/Contrib network and we currently have a <span className="fact-highlight">developer api</span> you could play with.
+                <span className="">{domain}</span>
+                {" "}is part of our VNOC/Contrib network and we currently have a <span className="fact-highlight">developer api</span> you could play with.
                 </h1>
             )
         }else if(checklist_val==='cd4'){
@@ -44,6 +44,12 @@ export default function Prompts({domain, domain_leads, team_application, total_t
                 </h1>
             )
         }
+        // Fallback when no option matched (e.g. missing selectedCheckbox)
+        return (
+            <h1 className="col-desc">
+                <span className="">{domain}</span> is part of our network. Explore opportunities to connect, contribute, and grow with the community.
+            </h1>
+        );
     }
     return (
         showPrompt()

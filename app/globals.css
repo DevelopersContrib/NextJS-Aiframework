@@ -2,22 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========== Modern landing & form variables ========== */
+:root {
+  --onboard-bg: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  --onboard-card-bg: #ffffff;
+  --onboard-card-border: rgba(148, 163, 184, 0.2);
+  --onboard-card-hover: rgba(99, 102, 241, 0.06);
+  --onboard-card-selected: rgba(99, 102, 241, 0.12);
+  --onboard-accent: #6366f1;
+  --onboard-accent-hover: #4f46e5;
+  --onboard-text: #1e293b;
+  --onboard-text-muted: #64748b;
+  --onboard-radius: 1rem;
+  --onboard-radius-lg: 1.5rem;
+  --onboard-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --onboard-shadow-lg: 0 10px 40px -10px rgba(0, 0, 0, 0.12);
+  --onboard-input-bg: #ffffff;
+  --onboard-input-border: #e2e8f0;
+  --onboard-input-focus: #6366f1;
+}
+
+/* ========== Main container ========== */
+.mainOnboardingContainer {
+  min-height: 100vh;
+  background: var(--onboard-bg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* ========== Onboarding header ========== */
 .onboardingHeader {
   position: relative;
-  padding-top: 30px;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
 }
 .col-top {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.oh-innner {		
+.oh-innner {
   display: flex;
-  -moz-box-align: center;
   align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .oh-innner .badge {
-  font-size: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  background: linear-gradient(135deg, var(--onboard-accent), #8b5cf6) !important;
+  border: none;
+  letter-spacing: 0.02em;
 }
 .oh-logo {
   display: initial;
@@ -25,24 +61,24 @@
   text-decoration: none;
 }
 .oh-logo h2 {
-  color: #616161;
-  font-weight: 600;
+  color: var(--onboard-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 .oh-right {
   display: flex;
-  -moz-box-align: center;
   align-items: center;
-  margin-left: 16px;
-  padding-left: 16px;
-  border-left: 1px solid gray;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--onboard-input-border);
 }
-.contrib-users-avatar {			
+.contrib-users-avatar {
   display: flex;
   flex-direction: row-reverse;
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   font-size: 16px;
-  margin-left: -5px;
+  margin-left: -8px;
 }
 .contrib-users-avatar img {
   text-align: center;
@@ -52,99 +88,552 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid white;			
+  border: 2px solid #fff;
+  box-shadow: var(--onboard-shadow);
 }
+
+/* ========== Option cards (checkbox labels) ========== */
 .styled-checkbox {
   display: none;
 }
 .styled-checkbox + label {
-  background: #ffffff;
-  border: 1px solid #eaeaea;
-  border-radius: 15px;
+  background: var(--onboard-card-bg);
+  border: 1.5px solid var(--onboard-card-border);
+  border-radius: var(--onboard-radius-lg);
   position: relative;
   cursor: pointer;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 1.35rem 1.25rem;
+  margin-bottom: 0;
   width: 100%;
-  box-shadow: 0px 0px 40px rgba(29, 58, 83, 0.1);
+  box-shadow: var(--onboard-shadow);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--onboard-text);
+  min-height: 120px;
+  justify-content: center;
 }
-.styled-checkbox:hover+ label {
-  border: 1px solid #cdcdcd;
-  background: #EFEFF2;
+.styled-checkbox:hover + label {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: var(--onboard-card-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+  transform: translateY(-2px);
 }
 .styled-checkbox:checked + label {
-  background: #ECECEE;
-  border: 1px solid #cdcdcd;
+  background: var(--onboard-card-selected);
+  border-color: var(--onboard-accent);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
-.styled-checkbox + label div {
+.styled-checkbox + label div,
+.styled-checkbox + label .step1-card-text {
   font-weight: 600;
-  margin-top: 10px;
-  height: 50px;
+  margin-top: 0.5rem;
+  min-height: auto;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--onboard-text);
 }
-/*****radio******/
+.styled-checkbox + label .step1-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  color: var(--onboard-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.styled-checkbox:hover + label .step1-card-icon,
+.styled-checkbox:checked + label .step1-card-icon {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
+  transform: scale(1.05);
+}
+.styled-checkbox + label .fa-globe,
+.styled-checkbox + label .fa-boxes-packing,
+.styled-checkbox + label .fa-boxes-stacked,
+.styled-checkbox + label .fa-coins,
+.styled-checkbox + label .fa-hand-holding,
+.styled-checkbox + label .fa-share {
+  color: var(--onboard-accent);
+  margin-bottom: 0;
+}
+
+/* ========== Step 1 – Hero & options section ========== */
+.step1-hero {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+@media (min-width: 768px) {
+  .step1-hero {
+    padding: 3rem 2rem;
+  }
+}
+.step1-hero-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--onboard-accent);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+.step1-hero-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--onboard-text);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem 0;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.step1-hero-sub {
+  font-size: 1rem;
+  color: var(--onboard-text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+.step1-options-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--onboard-text-muted);
+  margin-bottom: 1rem;
+  padding-left: 0.25rem;
+}
+
+/* ========== Step 2 – Name prompt ========== */
+.step2-hero {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+@media (min-width: 768px) {
+  .step2-hero {
+    padding: 3rem 2rem;
+  }
+}
+.step2-hero-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--onboard-accent);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+.step2-hero-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--onboard-text);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+}
+.step2-hero-sub {
+  font-size: 1rem;
+  color: var(--onboard-text-muted);
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+}
+.step2-name-wrap {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+.step2-name-input.input-sizer {
+  padding: 0.6rem 1rem 0.6rem 0;
+  min-width: 200px;
+  border-bottom: 2px solid var(--onboard-input-border);
+  border-radius: 0;
+}
+.step2-name-input.input-sizer input {
+  min-width: 180px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Step 2 – Thank you + buttons */
+.step2-thanks {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+}
+.step2-thanks-text {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--onboard-text);
+  margin: 0 0 0.25rem 0;
+}
+.step2-thanks-sub {
+  font-size: 1rem;
+  color: var(--onboard-text-muted);
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+}
+.step2-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== Step 4 – Signup form ========== */
+.step4-back-row {
+  margin-bottom: 1rem;
+}
+.step4-back-row .btn-back {
+  display: inline-flex;
+  align-items: center;
+}
+.step4-hero {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+@media (min-width: 768px) {
+  .step4-hero {
+    padding: 2.5rem 2rem;
+  }
+}
+.step4-hero-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--onboard-accent);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+.step4-hero-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--onboard-text);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+}
+.step4-hero-sub {
+  font-size: 1rem;
+  color: var(--onboard-text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+.step4-form {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+  padding: 2rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .step4-form {
+    padding: 2.5rem 2rem;
+  }
+}
+.step4-field {
+  margin-bottom: 1.5rem;
+}
+.step4-field .form4-input-error {
+  margin-top: 0.35rem;
+  display: block;
+}
+.step4-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--onboard-text);
+  margin-bottom: 0.4rem;
+}
+.step4-required {
+  color: #dc2626;
+}
+.step4-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--onboard-text);
+  background: #fff;
+  border: 1.5px solid var(--onboard-input-border);
+  border-radius: var(--onboard-radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.step4-input::placeholder {
+  color: var(--onboard-text-muted);
+}
+.step4-input:focus {
+  outline: none;
+  border-color: var(--onboard-input-focus);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+.step4-check-wrap {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.step4-check-wrap .form4-input-error {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+.step4-checkbox {
+  width: 1.15em;
+  height: 1.15em;
+  margin-top: 0.25em;
+  flex-shrink: 0;
+  border-radius: 0.35em;
+  border: 1.5px solid var(--onboard-input-border);
+  accent-color: var(--onboard-accent);
+  cursor: pointer;
+}
+.step4-check-label {
+  font-size: 0.95rem;
+  color: var(--onboard-text);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.step4-link {
+  color: var(--onboard-accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+.step4-link:hover {
+  text-decoration: underline;
+}
+.step4-submit-wrap {
+  margin-top: 0.5rem;
+}
+.step4-submit-btn {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+.step4-login-divider {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  text-align: center;
+}
+.step4-login-text {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--onboard-text-muted);
+  margin-bottom: 0.75rem;
+}
+.step4-login-link {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.step4-login-link:hover {
+  opacity: 0.85;
+}
+.step4-login-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ========== Step 3 – Fact card ========== */
+.step3-back-row {
+  margin-bottom: 1rem;
+}
+.step3-back-row .btn-back {
+  display: inline-flex;
+  align-items: center;
+}
+.step3-fact-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .step3-fact-card {
+    padding: 2.5rem 2.5rem;
+  }
+}
+.step3-fact-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--onboard-accent);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+.step3-fact-body {
+  margin-bottom: 1.75rem;
+}
+.step3-fact-body .col-desc,
+.step3-fact-body h1.col-desc {
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--onboard-text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.step3-fact-body .fact-highlight {
+  background: linear-gradient(0deg, rgba(253, 224, 71, 0.5) 50%, transparent 50%);
+  padding: 0.15em 0.25em;
+  border-radius: 3px;
+  font-weight: 700;
+}
+.step3-actions {
+  display: flex;
+  justify-content: center;
+}
+.step3-cta {
+  min-width: 10rem;
+  text-align: center;
+}
+
+/* Equal-height option cards */
+.select-1st,
+.select-2nd,
+.select-3rd,
+.select-4th,
+.select-5th,
+.select-6th {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.step1-options-label + .row {
+  align-items: stretch;
+}
+.step1-options-label + .row > [class*="col-"] {
+  display: flex;
+  min-width: 0;
+}
+.styled-checkbox + label {
+  flex: 1;
+  width: 100%;
+}
+
+/* ========== Radio (legacy) ========== */
 .styled-radio {
   display: none;
 }
 .styled-radio + label {
-  background: #E0EBFB;
-  border: 1px solid #C9DCF7;
-  border-radius: 15px;
+  background: #eef2ff;
+  border: 1.5px solid #c7d2fe;
+  border-radius: var(--onboard-radius-lg);
   position: relative;
   cursor: pointer;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
   width: 100%;
+  transition: border-color 0.2s, background 0.2s;
 }
-.styled-radio:hover+ label {
-  border: 1px solid #629df7;
+.styled-radio:hover + label {
+  border-color: var(--onboard-accent);
 }
 .styled-radio:checked + label {
-  background: #91B5EC;
+  background: #c7d2fe;
+  border-color: var(--onboard-accent);
 }
 .styled-radio + label div {
   font-weight: 600;
-  margin-top: 20px;
-  height: 50px;
+  margin-top: 0.5rem;
+  min-height: 2.5rem;
 }
-/**********/
+
+/* ========== Onboarding section ========== */
 .onboardingSection {
   position: relative;
-  padding-top: 50px;
-  padding-bottom: 150px;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 .coldiv {
-  margin-bottom: 20px;
+  margin-bottom: 1.75rem;
 }
-.coldiv .input, .textarea {
-border-bottom: 1px solid #dedede;
-font-family: inherit;
-font-size: inherit;
-padding: 1px 2px;
-color: rgb(33, 37, 41);
-cursor: text;
-text-transform: capitalize;
+.coldiv .input,
+.coldiv .textarea {
+  border-bottom: 1px solid var(--onboard-input-border);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 2px 4px;
+  color: var(--onboard-text);
+  cursor: text;
+  text-transform: capitalize;
 }
 .coldiv .input-wrap {
-position: relative;
+  position: relative;
 }
 .coldiv .input-wrap .input {
-position: absolute;
-width: 100%;
-left: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
 }
-.coldiv .width-machine {		
-padding: 0 1rem;
+.coldiv .width-machine {
+  padding: 0 1rem;
 }
 .coldiv .input[contenteditable]:empty::before {
-content: "Firstname";
-color: gray;
+  content: "Firstname";
+  color: var(--onboard-text-muted);
 }
+
+/* ========== Step 3 fact / prompts ========== */
 h1.col-desc {
-  font-size: 49px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--onboard-text);
+  letter-spacing: -0.02em;
 }
 .fact-highlight {
-  background: linear-gradient(0deg, #fdfdba 50%, #fff 50%);
+  background: linear-gradient(0deg, rgba(253, 224, 71, 0.45) 50%, transparent 50%);
+  padding: 0.1em 0.2em;
+  border-radius: 4px;
 }
+
+/* ========== Input sizer (inline name input) ========== */
 *,
 *::before,
 *::after {
@@ -152,10 +641,13 @@ h1.col-desc {
 }
 .input-sizer {
   display: inline-grid;
-  vertical-align: 11px;
+  vertical-align: middle;
   align-items: center;
   position: relative;
-  border-bottom: 1px dashed #000;
+  border-bottom: 2px solid var(--onboard-text);
+  border-radius: 0;
+  padding-bottom: 2px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .input-sizer.stacked {
   padding: 0.5em;
@@ -170,30 +662,32 @@ h1.col-desc {
 .input-sizer input,
 .input-sizer textarea {
   width: auto;
-  min-width: 135px;
+  min-width: 140px;
   grid-area: 1/2;
   font: inherit;
+  font-size: 1.125rem;
+  font-weight: 600;
   margin: 0;
   resize: none;
   background: none;
-  -webkit-appearance: none;
-   -moz-appearance: none;
-      appearance: none;
+  appearance: none;
   border: none;
   text-align: center;
   text-transform: capitalize;
-}		
+  color: var(--onboard-text);
+}
 .input-sizer::after {
   content: attr(data-value) " ";
   visibility: hidden;
   white-space: pre-wrap;
 }
 .input-sizer:focus-within {
-  outline: solid 1px blue;
-  box-shadow: 4px 4px 0px blue;
+  outline: none;
+  border-bottom-color: var(--onboard-accent);
+  box-shadow: 0 2px 0 0 var(--onboard-accent);
 }
 .input-sizer:focus-within > span {
-  color: blue;
+  color: var(--onboard-accent);
 }
 .input-sizer:focus-within textarea:focus,
 .input-sizer:focus-within input:focus {
@@ -201,15 +695,123 @@ h1.col-desc {
 }
 .input-sizer > span {
   text-transform: uppercase;
-  font-size: 0.8em;
-  font-weight: bold;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--onboard-text-muted);
 }
-.select-1st .bi, .select-2nd .bi, .select-3rd .bi, .select-4th .bi, .select-5th .bi, .select-6th .bi {
+
+/* ========== Icon sizes in option cards ========== */
+.select-1st .bi,
+.select-2nd .bi,
+.select-3rd .bi,
+.select-4th .bi,
+.select-5th .bi,
+.select-6th .bi {
   font-size: 2rem;
 }
+
+/* ========== Form block (Step 4 signup) ========== */
 .colformbg {
-  box-shadow: 0px 0px 40px rgba(29, 58, 83, 0.1);
-  padding: 20px;
-  border-radius: 6px;
+  background: var(--onboard-card-bg);
+  box-shadow: var(--onboard-shadow-lg);
+  padding: 2rem;
+  border-radius: var(--onboard-radius-lg);
+  border: 1px solid var(--onboard-card-border);
+}
+.colformbg .form-label {
+  font-weight: 600;
+  color: var(--onboard-text);
+  margin-bottom: 0.4rem;
+}
+.colformbg .form-control {
+  border-radius: var(--onboard-radius);
+  border: 1.5px solid var(--onboard-input-border);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.colformbg .form-control:focus {
+  border-color: var(--onboard-input-focus);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  outline: none;
+}
+.colformbg .form-control::placeholder {
+  color: var(--onboard-text-muted);
+}
+.form4-input-error {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ========== Buttons ========== */
+.onboardingSection .btn-dark {
+  background: linear-gradient(135deg, var(--onboard-accent), #8b5cf6) !important;
+  border: none !important;
+  padding: 0.75rem 1.75rem !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.onboardingSection .btn-dark:hover {
+  background: linear-gradient(135deg, var(--onboard-accent-hover), #7c3aed) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+.btn-back {
+  background: transparent !important;
+  border: 1.5px solid var(--onboard-input-border) !important;
+  color: var(--onboard-text) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--onboard-radius) !important;
+  font-weight: 500 !important;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-back:hover {
+  border-color: var(--onboard-accent) !important;
+  color: var(--onboard-accent) !important;
+  background: rgba(99, 102, 241, 0.06) !important;
+}
+
+/* ========== Checkbox terms (Step 4) ========== */
+.colformbg .form-check-input {
+  width: 1.1em;
+  height: 1.1em;
+  margin-top: 0.2em;
+  border-radius: 0.35em;
+  border: 1.5px solid var(--onboard-input-border);
+}
+.colformbg .form-check-input:checked {
+  background-color: var(--onboard-accent);
+  border-color: var(--onboard-accent);
+}
+.colformbg .form-check-label {
+  color: var(--onboard-text);
+  font-size: 0.95rem;
+}
+
+/* ========== Contrib login link area ========== */
+.col-contrib {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--onboard-card-border);
+}
+.col-contrib .text-uppercase {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--onboard-text-muted);
+}
+.col-contrib a {
+  transition: opacity 0.2s;
+}
+.col-contrib a:hover {
+  opacity: 0.85;
+}
+
+/* ========== Name step thank you ========== */
+.user-name.text-primary {
+  color: var(--onboard-accent) !important;
 }
