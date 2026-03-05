@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Check,
   Rocket,
@@ -206,9 +207,11 @@ export const First100FoundersPage: React.FC = () => {
                       className="aspect-square flex items-center justify-center p-1 border border-white/10 bg-white/5"
                     >
                       {isFilled ? (
-                        <img
+                        <Image
                           src={generateAvatarUrl(index)}
                           alt={`Founder ${index + 1}`}
+                          width={80}
+                          height={80}
                           className="w-full h-full rounded-full border-2 border-white/60 shadow-lg object-cover opacity-80"
                           style={{
                             filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
@@ -254,7 +257,7 @@ export const First100FoundersPage: React.FC = () => {
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-8 leading-relaxed animate-fade-in-delay drop-shadow-lg">
-                We'll build your business before 2026. $99 now. Full platform
+                We&apos;ll build your business before 2026. $99 now. Full platform
                 access on Jan 15.
               </p>
 
@@ -421,7 +424,7 @@ export const First100FoundersPage: React.FC = () => {
               🚀 Your Business in a Box
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Choose your domain. We'll build a contractor site, niche
+              Choose your domain. We&apos;ll build a contractor site, niche
               directory, or service platform that generates leads.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -490,7 +493,7 @@ export const First100FoundersPage: React.FC = () => {
                     </h3>
                   </div>
                   <p className="text-lg text-gray-600">
-                    Lock your spot as one of the First 100 Founders. We're
+                    Lock your spot as one of the First 100 Founders. We&apos;re
                     building your contractor website behind the scenes.
                   </p>
                 </div>
@@ -525,7 +528,7 @@ export const First100FoundersPage: React.FC = () => {
                     </h3>
                   </div>
                   <p className="text-lg text-gray-600">
-                    Full VentureOS Dashboard Unlocks - You'll receive your login
+                    Full VentureOS Dashboard Unlocks - You&apos;ll receive your login
                     credentials and can start building your contractor website!
                   </p>
                 </div>
@@ -934,8 +937,7 @@ export const First100FoundersPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Marketing Agent Chat */}
-        <First100FoundersChat />
+        {/* Marketing Agent Chat - add First100FoundersChat component when ready */}
       </div>
     </>
   );
