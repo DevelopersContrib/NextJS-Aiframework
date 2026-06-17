@@ -58,7 +58,19 @@ const HeaderWidget = ({ domain, piwikId, accountGA, adsenseClientId }) => {
       document.getElementsByTagName("head")[0].appendChild(script);
       document.getElementsByTagName("head")[0].appendChild(scriptCode);
     };
+
+    const vnocAnalyticsScript = () => {
+      let script = document.createElement("script");
+      script.src = "https://analytics.vnoc.com/tracker.js";
+      script.setAttribute("data-endpoint", "https://analytics.vnoc.com/");
+      script.setAttribute("data-domain", domain);
+      script.defer = true;
+
+      document.getElementsByTagName("head")[0].appendChild(script);
+    };
+
     fWidget();
+    vnocAnalyticsScript();
 
     if (piwikId) {
       piwikScript();
